@@ -1,0 +1,76 @@
+.short_info{
+    width:100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom   : 4px solid  rgba(7, 7, 7, 0.38);
+    padding-bottom: 65px;
+}
+
+.img{
+   
+   width: 400px;
+   height: 400px;
+}
+.info{
+    height: auto;   
+    padding: 30px 80px;
+    width:70%;  
+}
+.wrapper{
+  
+    padding: 20px  54px;
+    width:100%;
+    height: 83vh;
+}
+.back_button{
+    margin-bottom: 15px;
+}
+.description_text{
+    font-family: 'Cabin';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+letter-spacing: -0.02em;
+
+/* Font/Tertiary */
+
+color: #60695C;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+}
+
+.description_title{
+    margin-bottom: 10px;
+    font-family: 'Cabin';
+font-style: normal;
+font-weight: 500;
+font-size: 31.25px;
+line-height: 38px;
+/* identical to box height */
+
+
+/* Font/Dark */
+
+color: #1A1F16;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.description_wrapper{
+    margin-top:20px;
+
+}

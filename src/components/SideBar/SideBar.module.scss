@@ -1,0 +1,23 @@
+.wrapper{
+    background-color: white;
+   margin-left: 16px;
+    height: 94vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px;
+    gap: 10px;
+    position: sticky;
+    width: 72px;
+    border-radius:8px;
+    top: 1.56%;
+    bottom: 1.56%;
+    box-shadow: 0px 4px 16px rgba(26, 31, 22, 0.15);
+    color : black;
+}
+
+.icon {
+    margin-top:50px;
+    font-size:24px;
+}

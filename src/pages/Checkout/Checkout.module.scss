@@ -1,0 +1,96 @@
+.wrapper{
+    width: 64%;
+}
+
+.address{
+    padding: 15px;
+    margin-top  :24px;
+    border-radius: 20px;
+    background-color:white;
+    display: flex;
+    justify-content:space-between;  
+    width: 100%;
+    height: 200px;
+}
+.payment{
+    padding: 15px;
+    margin-top  :24px;  
+    border-radius: 20px;
+    background-color:white;
+    display: flex;
+    justify-content:space-between;  
+    width: 100%;
+    height: 200px;
+}
+.bag{
+    padding: 15px;
+    margin-top  :24px;  
+    border-radius: 20px;
+    background-color:white;
+   
+    width: 100%;
+}
+
+.line{
+    border: 1px solid rgba(7, 7, 7, 0.38);
+    width: 90%;
+    margin: 25px;
+
+}
+.title{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 8px 8px 24px;
+gap: 16px;
+
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+    font-family: 'Cabin';
+font-style: normal;
+font-weight: 400;
+font-size: 31.25px;
+line-height: 38px;
+/* identical to box height */
+
+letter-spacing: 0.25em;
+text-transform: uppercase;
+
+/* Font/Dark */
+
+color: #1A1F16;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+
+.item{
+    display:flex;
+    justify-content: center;
+}
+
+.button{
+    border-radius: 3px;
+    font-family: 'Cabin';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+letter-spacing: -0.02em;
+padding: 8px 24px;
+background-color:white;
+border: 1px solid #1A1F16;
+border-radius: 11px;
+
+}
