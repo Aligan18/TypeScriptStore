@@ -1,5 +1,5 @@
 import React, {FC} from 'react'
-import CardList from '../CardLists/CardLists'
+import CardList, { CardStyleEnum } from '../CardLists/CardLists'
 import ImageCard from '../ImageCard/ImageCard'
 import classes from './Bag.module.scss'
 
@@ -13,7 +13,7 @@ const Bag : FC = () => {
             Bag
           </div>
           <div className={classes.items}>
-            <CardList  items={items} renderItem={(item:number)=> <div className={classes.image}> <ImageCard/></div>} />
+            <CardList style={CardStyleEnum.flexStart}  items={items} renderItem={(item:number)=> <div className={classes.image}> <ImageCard/></div>} />
           </div>
           <div className={classes.button_wrapper}>
               <button className={classes.button}>

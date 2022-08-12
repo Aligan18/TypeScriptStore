@@ -2,13 +2,24 @@ import React , {FC} from 'react'
 
 import classes from "./CardList.module.scss"
 
-interface ICardListProps<T>{
-  style?:{}
-  items:any[];
-  renderItem: (item:T)=>React.ReactNode
+export enum CardStyleEnum {
+  center ="center",
+  flexStart = "flex-start",
 }
 
 
+interface ICardListProps<T>{
+  style: CardStyleEnum; 
+  items:any[];
+  renderItem: (item:T)=>React.ReactNode
+}
+const center = {
+  justifyContent: "center"
+}
+const start = {
+  justifyContent: "flex-start"
+}
+
 export default function CardList<T>(props:ICardListProps<T>){
-   return (<div className={classes.wrapper}>{props.items.map(props.renderItem)}</div>)
+   return (<div style={ props.style=== CardStyleEnum.center? center : start} className={classes.wrapper}>{props.items.map(props.renderItem)}</div>)
 }
