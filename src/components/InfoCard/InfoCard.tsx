@@ -1,7 +1,7 @@
 import React ,{FC} from 'react'
 import Stars from '../Stars/Stars';
 import classes from "./InfoCard.module.scss"
-import ItemsType from '../../types/product/ItemsType'
+import {ItemsType} from '../../types/product/ItemsType'
 export enum ESizeTypes{
   large = "large",
   medium = "medium",
@@ -9,10 +9,10 @@ export enum ESizeTypes{
 }
 
 interface InfoCardProps{
-  stars : number;
+  stars : number | undefined;
   size : ESizeTypes;
   bagButton? : boolean;
-  info? : ItemsType
+  info? : ItemsType | null; 
 }
 
 const InfoCard: FC<InfoCardProps> = ({stars, size, bagButton=true , info}) => {

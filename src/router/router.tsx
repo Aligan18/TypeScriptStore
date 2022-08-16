@@ -11,7 +11,7 @@ interface publicRoutesTypes {
 
 
 export const publicRoutes : publicRoutesTypes[] = [
-    {path: '/home', element: <HomePage/>},
+    {path: '/', element: <HomePage/>},
     {path: '/checkout', element: <Checkout/>},
     {path: '/bag', element: <BagPage/>},
     {path: '/info', element: <InfoPage/>},

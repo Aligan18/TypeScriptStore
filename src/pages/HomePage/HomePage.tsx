@@ -9,7 +9,7 @@ import CardLists, { CardStyleEnum } from '../../components/CardLists/CardLists'
 import SearchPanel from '../../components/SearchPanel/SearchPanel'
 import classes from "./HomePage.module.scss"
 
-import ItemsType from '../../types/product/ItemsType'
+import {ItemsType} from '../../types/product/ItemsType'
 
 
 

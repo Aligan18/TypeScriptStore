@@ -1,20 +1,36 @@
 import React , {FC} from 'react'
+import { useTypedSelector } from '../../нooks/useTypeSelector'
+import { Link } from 'react-router-dom'
 import ImageCard from '../../components/ImageCard/ImageCard'
 import InfoCard, { ESizeTypes } from '../../components/InfoCard/InfoCard'
+import useActions from '../../нooks/useActions'
 import classes from './InfoPage.module.scss'
 
 const InfoPage:FC = () => {
+
+  const item = useTypedSelector(state=>state.product)
+
+  const {RemoveProductInfo}=useActions()
+
+const backToHome= ()=>{
+  RemoveProductInfo()
+}
+
   return (
     <div className={ classes.wrapper}>
       <div className={classes.back_button}>
-        <button > Back </button>
+        <button >
+        <Link onClick={()=>{backToHome()}} className={classes.link} to={'/'}>
+          Back
+          </Link>
+           </button>
       </div>
       <div className={classes.short_info}>
           <div className={classes.img}>
-              <ImageCard/>
+              <ImageCard img_url={item.product?.primaryImage.medium}/>
           </div>
           <div className={classes.info}>
-              <InfoCard size={ESizeTypes.large} stars={2}/>
+              <InfoCard info={item.product} size={ESizeTypes.large} stars={item.product?.rating}/>
           </div>
       </div>
       <div className={classes.description_wrapper}>
