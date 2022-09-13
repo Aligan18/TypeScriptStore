@@ -22,14 +22,14 @@ export const bagItemReducer =(state= InitialState, action:BagItemActions):Initia
                 }
             ;
         case EnumBagItemActions.DELETE_ITEM: 
-            const changeTotalAmount = {...state}
             
-            const changedState = {...state}
+            const changedState : InitialStateTypes|any = {}
+            Object.assign(changedState, state)
+            const newTotalAmount : number= changedState.totalAmount-(action.payment.amount * changedState.quantity[action.payment.id])
             delete changedState.items[action.payment.id]
             delete changedState.quantity[action.payment.id]
             return {...state ,
-                
-                totalAmount: changeTotalAmount.totalAmount-(action.payment.amount * changeTotalAmount.quantity[action.payment.id]),
+                    totalAmount : newTotalAmount,
                 items: {...changedState.items} , }
     
 
