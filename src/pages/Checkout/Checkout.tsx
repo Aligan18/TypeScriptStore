@@ -32,7 +32,7 @@ const Checkout:FC = () => {
         <div className={ classes.bag}>
             <div className={ classes.title}>Review you Bag  </div>
             <div className={ classes.bag_items}>
-                <LongCard/>
+                <LongCard  />
                 <div className={ classes.item}>
                     <hr className={ classes.line}/>
                 </div>

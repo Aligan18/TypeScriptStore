@@ -4,6 +4,15 @@ import BagPage from "../pages/BagPage/BagPage";
 import InfoPage from "../pages/InfoPage/InfoPage";
 
 
+export enum RoutersPathEnum{
+
+    HOME ="/",
+    CHECKOUT ="/checkout",
+    BAG="/bag",
+    INFO="/info/:id"
+
+}
+
 interface publicRoutesTypes {
     path : string; 
     element : React.ReactNode
@@ -11,10 +20,10 @@ interface publicRoutesTypes {
 
 
 export const publicRoutes : publicRoutesTypes[] = [
-    {path: '/', element: <HomePage/>},
-    {path: '/checkout', element: <Checkout/>},
-    {path: '/bag', element: <BagPage/>},
-    {path: '/info', element: <InfoPage/>},
+    {path: RoutersPathEnum.HOME, element: <HomePage/>},
+    {path: RoutersPathEnum.CHECKOUT, element: <Checkout/>},
+    {path: RoutersPathEnum.BAG, element: <BagPage/>},
+    {path: RoutersPathEnum.INFO, element: <InfoPage/>},
     
 
 ]

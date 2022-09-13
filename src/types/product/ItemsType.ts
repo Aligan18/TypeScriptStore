@@ -29,6 +29,7 @@ small : string ;
 export interface InitialStateTypes {
     product : ItemsType |null;
     id : string |null;
+   
 }
 
 

@@ -27,7 +27,7 @@ function App() {
                   </div>
                   <Routes>
                       {publicRoutes.map(route =>
-                        <Route path={route.path} element={route.element}/>)}
+                        <Route path={route.path} element={route.element}  />)}
                   </Routes>
                   <div>
 

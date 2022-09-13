@@ -1,10 +1,12 @@
 import React , {FC} from 'react'
 import { useTypedSelector } from '../../нooks/useTypeSelector'
-import { Link } from 'react-router-dom'
+
 import ImageCard from '../../components/ImageCard/ImageCard'
 import InfoCard, { ESizeTypes } from '../../components/InfoCard/InfoCard'
 import useActions from '../../нooks/useActions'
 import classes from './InfoPage.module.scss'
+
+import BackButton from '../../components/BackButton/BackButton'
 
 const InfoPage:FC = () => {
 
@@ -18,16 +20,10 @@ const backToHome= ()=>{
 
   return (
     <div className={ classes.wrapper}>
-      <div className={classes.back_button}>
-        <button >
-        <Link onClick={()=>{backToHome()}} className={classes.link} to={'/'}>
-          Back
-          </Link>
-           </button>
-      </div>
+        <BackButton onClick={()=>backToHome()}/>
       <div className={classes.short_info}>
           <div className={classes.img}>
-              <ImageCard img_url={item.product?.primaryImage.medium}/>
+              <ImageCard  img_url={item.product?.primaryImage.medium}/>
           </div>
           <div className={classes.info}>
               <InfoCard info={item.product} size={ESizeTypes.large} stars={item.product?.rating}/>

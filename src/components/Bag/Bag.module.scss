@@ -11,7 +11,7 @@
 
 .bag_space {
     
-    border-left: 4px solid  rgba(7, 7, 7, 0.38);
+    width: 100%;
     padding: 50px 20px;
     height:80%
 }
@@ -24,7 +24,7 @@
 }
 .button_wrapper{ 
     
-    margin-top:65px;
+    margin-top:30px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -48,4 +48,15 @@
     justify-content: center;
     align-items: center;
     font-size:39px;
+}
+.amount{
+    margin-top:40px;
+    display: flex;  
+    justify-content: center;
+    align-content: center;
+}
+.items{
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
