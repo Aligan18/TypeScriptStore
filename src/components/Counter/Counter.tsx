@@ -18,7 +18,7 @@ const Counter: FC<ICounter>= ( {item }) => {
     <div className={classes.wrapper}>
         <div onClick={()=>increaseItem(item)} className={classes.icon}><i className="fa-solid fa-plus"></i></div>
         <div className={classes.icon}>{quantity[item.id]}</div>
-        <div onClick={()=>decreaseItem(item)} className={classes.icon}><i className="fa-regular fa-minus"></i></div>
+        <div onClick={()=>decreaseItem(item)} className={classes.icon}><i className="fa-solid fa-minus"></i></div>
     </div>
   )
 }

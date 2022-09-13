@@ -19,7 +19,7 @@ const Bag : FC = () => {
 
   },[items])
 
-  console.log("hello", items, Object.values(items))
+  
 
   return (
     <div className={ classes.wrapper}>

@@ -21,3 +21,33 @@
 .img_box{
     padding: 20px;
 }
+.button_box{
+        margin-top:30px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+}
+.title{
+   
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 8px 8px 24px;
+        gap: 16px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        font-family: "Cabin";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 31.25px;
+        line-height: 38px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #1A1F16;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+    
+}

@@ -18,6 +18,26 @@
 }
 
 .icon {
+   
     margin-top:50px;
     font-size:24px;
+}
+.icon_box {
+    color: white;
+    margin:20px 5px;
+    font-size:24px;
+}
+.products{
+    background: black;
+    margin-top:30px;
+    border-radius:6px;
+    border: 1px solid black;
+    display:block;
+    padding:5px 10px;
+    
+}
+.item{
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }

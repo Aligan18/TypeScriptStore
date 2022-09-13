@@ -1,8 +1,20 @@
-import React , {FC}from 'react'
+import React , {FC,useState,useEffect}from 'react'
 import LongCard from '../../components/LongCard/LongCard'
+import { useTypedSelector } from '../../нooks/useTypeSelector'
 import classes from './Checkout.module.scss'
+import {ItemsType} from '../../types/product/ItemsType'
+import CardList from '../../components/CardLists/CardLists'
+import {CardStyleEnum} from '../../components/CardLists/CardLists'
 
 const Checkout:FC = () => {
+    const {items,quantity,totalAmount} = useTypedSelector(state=>state.bagItems)
+    const [arrayItems , setArrayItems] = useState(Object.values(items))
+
+    useEffect(()=>{
+      setArrayItems(Object.values(items))
+  
+    },[items])
+
   return (
     <div className={ classes.wrapper }>
         <div className={ classes.address }>
@@ -32,23 +44,14 @@ const Checkout:FC = () => {
         <div className={ classes.bag}>
             <div className={ classes.title}>Review you Bag  </div>
             <div className={ classes.bag_items}>
-                <LongCard  />
-                <div className={ classes.item}>
-                    <hr className={ classes.line}/>
-                </div>
-                <LongCard/>
-                <div className={ classes.item}>
-                    <hr className={ classes.line}/>
-                </div>
-                <LongCard/>
-                <div className={ classes.item}>
-                    <hr className={ classes.line}/>
-                </div>
-                <LongCard/>
-                <div className={ classes.item}>
-                    <hr className={ classes.line}/>
-                </div>  
-                
+            <CardList   style={CardStyleEnum.center}  
+                        items={arrayItems} 
+                        renderItem={(item:ItemsType)=> <>
+                                <LongCard item={item} />
+                                <div className={ classes.item}>
+                                    <hr className={ classes.line}/>
+                                </div> </>} />
+               
             </div>
         </div>
     </div>

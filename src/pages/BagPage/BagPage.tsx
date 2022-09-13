@@ -4,6 +4,7 @@ import {useTypedSelector} from '../../нooks/useTypeSelector'
 import LongCard from '../../components/LongCard/LongCard'
 import classes from './BagPage.module.scss'
 import { ItemsType } from '../../types/product/ItemsType'
+import { Link } from 'react-router-dom'
 
 
 
@@ -19,6 +20,12 @@ const BagPage: FC= () => {
         {arrayItems.map(item =>
            <LongCard item={item} key={item.id}/>
           )}
+        
+        <div className={classes.button_box}>
+          <Link to={"/checkout"} >
+            <button >Checkout</button>
+            </Link>
+        </div>
            
                       
     </div>
