@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react'
 import { getDatabase, ref, onValue,  child, get} from "firebase/database";
 import { initializeApp } from "firebase/app";
-
+import {useTypedSelector} from '../../нooks/useTypeSelector'
 import axios from 'axios'
 import Bag from '../../components/Bag/Bag'
 import Card from '../../components/Card/Card'
@@ -16,48 +16,27 @@ import {ItemsType} from '../../types/product/ItemsType'
 
 const HomePage: FC = () => {
 
-  const [items , setItems] =useState<ItemsType[] >([])
-
-  const   fetchItems = () =>{
-   
-      // TODO: Replace the following with your app's Firebase project configuration
-      // See: https://firebase.google.com/docs/web/learn-more#config-object
-      const firebaseConfig = {
-        // ...
-        // The value of `databaseURL` depends on the location of the database
-        databaseURL: "https://react-electronics-store-default-rtdb.europe-west1.firebasedatabase.app",
-      };
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-    // Initialize Realtime Database and get a reference to the service
-   
-      const dbRef = ref(getDatabase(app));
-      get(child(dbRef, `smart_watches`)).then((snapshot) => {
-        if (snapshot.exists()) {
-          console.log(snapshot.val());
-          const data  = snapshot.val();
-          setItems(data.items)
-        } else {
-          console.log("No data available");
-        }
-      }).catch((error) => {
-        console.error(error);
-      });
-
-  }
+  const {products} = useTypedSelector(state=> state.produtcsHomePage)
+  const [items , setItems] =useState<ItemsType[][] >([[]])
 
 
-  useEffect(()=>{
-      fetchItems()
-  },[])
 
   
+
+useEffect(()=>{
+  setItems (Object.values(products))
+},[products])
+console.log("products" , items)
 
   return (
     <div className= {classes.wrapper}>
         <div className={classes.center}>
         <SearchPanel/>
-        <CardLists  style={CardStyleEnum.center} items={items} renderItem={(item:ItemsType) =><Card item={item} key={item.id}/>} />
+         
+        {items.map(item=>
+          <CardLists  style={CardStyleEnum.center} items={item} renderItem={(product:ItemsType) =><Card item={product} key={product.id}/>} />
+          )}
+      
         </div>
        
     </div>
