@@ -13,11 +13,11 @@ useEffect(()=>{
         newStars.push(Math.round( Math.random() * 100 ));
         
     }
-    console.log(newStars)
+   
     return setStar(state => ([ ...newStars ]));
 },[])
 
-    console.log("stars" , stars)
+    
         
   return (
     <div>

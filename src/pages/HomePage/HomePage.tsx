@@ -17,6 +17,7 @@ import {ItemsType} from '../../types/product/ItemsType'
 const HomePage: FC = () => {
 
   const {products} = useTypedSelector(state=> state.produtcsHomePage)
+  console.log("produc",products)
   const [items , setItems] =useState<ItemsType[][] >([[]])
 
 
@@ -32,11 +33,9 @@ console.log("products" , items)
     <div className= {classes.wrapper}>
         <div className={classes.center}>
         <SearchPanel/>
-         
         {items.map(item=>
           <CardLists  style={CardStyleEnum.center} items={item} renderItem={(product:ItemsType) =><Card item={product} key={product.id}/>} />
           )}
-      
         </div>
        
     </div>

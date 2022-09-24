@@ -9,8 +9,15 @@ export const productsReducer = (state = initialState,   action:ProductsActions):
         switch (action.type) {
             case EProductsActions.ADD_PRODUCT:
                 return {...state , products: {...state.products ,[action.payment.key] : action.payment.newProduct}}
+
             case EProductsActions.DELETE_PRODUCT:
-                return {...state}
+                
+                return { ...state, products: Object.assign(
+                    {},
+                    ...Object.entries(state.products)
+                       .filter(([k]) => k!== action.payment.key)
+                       .map(([k, v]) => ({[k]: v})))}
+
             default : return state
         }
 }

@@ -8,10 +8,18 @@ import { EProducts, ESelectedProductType } from '../../types/selectedProducts/se
 
 const SideBar : FC = () => {
 
+  const {DeleteProductsHomePage} = useActions()
+
+const [clicked , setClicked] = useState <any>({
+                                          [EProducts.NOTEBOOKS]:false ,
+                                          [EProducts.SMARTPHONES]: false ,
+                                          [EProducts.SMART_TV]: false ,
+                                          [EProducts.SMART_WATCHES]: false ,
+                                        })
+
 const [showProducts , setShowProducts ] = useState(false)
       // const [items , setItems] =useState<ItemsType[] >([])
         const   fetchItems = (key: string) =>{
-          
           // TODO: Replace the following with your app's Firebase project configuration
           // See: https://firebase.google.com/docs/web/learn-more#config-object
           const firebaseConfig = {
@@ -29,6 +37,7 @@ const [showProducts , setShowProducts ] = useState(false)
               console.log(snapshot.val());
               const data  = snapshot.val();
               AddProductsHomePage(data.items , key )
+              setClicked({...clicked , [key] : true });
              
             } else {
               console.log("No data available");
@@ -39,6 +48,11 @@ const [showProducts , setShowProducts ] = useState(false)
 
         }
 
+  const deleteItem =(key: string)=>{
+    DeleteProductsHomePage(key)
+    setClicked({...clicked , [key] : false });
+  }
+
   useEffect(()=>{
           fetchItems(EProducts.SMART_WATCHES)
       },[])
@@ -47,8 +61,15 @@ const [showProducts , setShowProducts ] = useState(false)
   
   const {AddProductsHomePage}=useActions()
 
+      const ClickCheck =(key: string, addItem:any , deleteItem:any)=>{
 
+      clicked[key] ?
+            deleteItem(key)
+            :
+            addItem(key)
+      }
 
+console.log(clicked)
 
   return (
     <div className={ classes.wrapper}>
@@ -56,16 +77,16 @@ const [showProducts , setShowProducts ] = useState(false)
       <i onClick={ ()=>setShowProducts(!showProducts)}className={classes.icon + " fa fa-bars"} aria-hidden="true"></i>
       
       {showProducts && <div className={classes.products}>
-          <div onClick={()=> fetchItems(EProducts.SMART_TV)}  className={classes.item}>
+          <div onClick={()=> ClickCheck(EProducts.SMART_TV,fetchItems,deleteItem)}  className={classes.item}>
             <i className={classes.icon_box + " fa-solid fa-tv"}></i>
           </div>
-          <div onClick={()=> fetchItems(EProducts.SMART_WATCHES)} className={classes.item}>
+          <div onClick={()=> ClickCheck(EProducts.SMART_WATCHES,fetchItems,deleteItem)} className={classes.item}>
             <i className={classes.icon_box + " fa-regular fa-clock"}></i>
           </div>
-          <div onClick={()=> fetchItems(EProducts.SMARTPHONES)} className={classes.item}>
+          <div onClick={()=> ClickCheck(EProducts.SMARTPHONES,fetchItems,deleteItem)} className={classes.item}>
           <i className={classes.icon_box + " fa-solid fa-mobile-screen-button"}></i>
           </div>
-          <div onClick={()=> fetchItems(EProducts.NOTEBOOKS)} className={classes.item}>
+          <div onClick={()=> ClickCheck(EProducts.NOTEBOOKS, fetchItems,deleteItem)} className={classes.item}>
           <i className={classes.icon_box + " fa-solid fa-laptop"}></i>
           </div>
       </div>
