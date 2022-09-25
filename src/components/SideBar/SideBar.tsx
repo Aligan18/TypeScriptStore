@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 import {ItemsType} from '../../types/product/ItemsType'
 import useActions from '../../нooks/useActions';
 import { EProducts, ESelectedProductType } from '../../types/selectedProducts/selectedProducts';
+import { Link } from 'react-router-dom';
 
 const SideBar : FC = () => {
 
@@ -73,7 +74,9 @@ console.log(clicked)
 
   return (
     <div className={ classes.wrapper}>
-      
+      <Link to="/">
+        <i className={classes.icon + " fa-solid fa-house-chimney"} aria-hidden="true"></i>
+      </Link>
       <i onClick={ ()=>setShowProducts(!showProducts)}className={classes.icon + " fa fa-bars"} aria-hidden="true"></i>
       
       {showProducts && <div className={classes.products}>

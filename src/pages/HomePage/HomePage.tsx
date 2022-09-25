@@ -19,23 +19,42 @@ const HomePage: FC = () => {
   const {products} = useTypedSelector(state=> state.produtcsHomePage)
   console.log("produc",products)
   const [items , setItems] =useState<ItemsType[][] >([[]])
+  const [findItems, setFindItems] = useState<ItemsType[][]>([[]])
+  const [searchValue, setSearchValue] = useState<string>("")
 
 
+  useEffect(()=>{
+    setItems (Object.values(products))
+  },[products])
 
-  
 
-useEffect(()=>{
-  setItems (Object.values(products))
-},[products])
-console.log("products" , items)
+  useEffect(()=>{
+      if (searchValue!== ""){
+        const array:any[] =[]
+        
+        items.map((item)=>{
+             const findProduct  =  item.filter(product =>product.name.includes(searchValue))
+             console.log("findProduct", findProduct)
+              array.push(findProduct) })
+        setFindItems( array )    
+      }
+  },[searchValue])
+
+  console.log("searchValue" , searchValue)
 
   return (
     <div className= {classes.wrapper}>
         <div className={classes.center}>
-        <SearchPanel/>
-        {items.map(item=>
-          <CardLists  style={CardStyleEnum.center} items={item} renderItem={(product:ItemsType) =><Card item={product} key={product.id}/>} />
-          )}
+        <SearchPanel searchValue={searchValue} setSearchValue={setSearchValue}/>
+        {searchValue ==="" ? 
+          items.map(item=>
+            <CardLists  style={CardStyleEnum.center} items={item} renderItem={(product:ItemsType) =><Card item={product} key={product.id}/>} />
+            )
+        :
+          findItems.map(findItem=>
+          <CardLists  style={CardStyleEnum.center} items={findItem} renderItem={(product:ItemsType) =><Card item={product} key={product.id}/>} />
+          )
+        }
         </div>
        
     </div>
