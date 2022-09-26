@@ -43,6 +43,7 @@ const HomePage: FC = () => {
   console.log("searchValue" , searchValue)
 
   return (
+    
     <div className= {classes.wrapper}>
         <div className={classes.center}>
         <SearchPanel searchValue={searchValue} setSearchValue={setSearchValue}/>
@@ -56,8 +57,11 @@ const HomePage: FC = () => {
           )
         }
         </div>
-       
-    </div>
+        <div>
+          <Bag/>
+        </div>
+     </div>  
+    
   )
 }
 
