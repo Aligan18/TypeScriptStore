@@ -41,7 +41,7 @@ const backToHome= ()=>{
 
                 Labore nisi do enim laborum labore voluptate cupidatat magna ex eiusmod aliqua amet. Ut elit do do anim fugiat adipisicing esse. Duis tempor fugiat ad sint sint irure est laboris. Officia amet pariatur sunt ad amet velit ipsum irure reprehenderit veniam.
 
-                Tempor aliquip tempor nisi do sit eiusmod mollit. Non nulla ex amet veniam nostrud est dolore in aliqua. Ea proident nostrud non pariatur nulla consequat quis ipsum Lorem pariatur incididunt. Ea enim est fugiat aute ut non enim id ipsum pariatur officia irure cillum. Anim exercitation sint incididunt minim incididunt incididunt duis consectetur cupidatat consequat ea ut aliquip veniam.Labore irure ex culpa consectetur. Commodo ipsum proident minim ut cillum voluptate eiusmod laboris. Adipisicing pariatur anim reprehenderit ex cupidatat duis exercitation occaecat. Fugiat cupidatat ad qui proident fugiat ad nisi eiusmod eu.</div>
+                </div>
 
     </div>
     </div>

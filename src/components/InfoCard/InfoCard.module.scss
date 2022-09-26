@@ -19,6 +19,7 @@
     color:white;
 }
 .title{
+    margin-bottom: 10px;
     overflow-x:hidden;
     display: flex;
 
@@ -30,7 +31,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
-    line-height: 24px;
+   
     color: #1A1F16;
     flex: none;
     order: 0;
@@ -93,12 +94,13 @@
     color:white;
 }
 .title_large{
+    margin-bottom: 20px;
     display: flex;
         font-family: 'Cabin';
     font-style: normal;
     font-weight: 800    ;
     font-size: 53px;
-    line-height: 24px;
+    line-height: 55px;
     color: #1A1F16;
     flex: none;
     order: 0;
