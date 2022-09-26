@@ -5,6 +5,7 @@ import classes from './Checkout.module.scss'
 import {ItemsType} from '../../types/product/ItemsType'
 import CardList from '../../components/CardLists/CardLists'
 import {CardStyleEnum} from '../../components/CardLists/CardLists'
+import Bag from '../../components/Bag/Bag'
 
 const Checkout:FC = () => {
     const {items,quantity,totalAmount} = useTypedSelector(state=>state.bagItems)
@@ -16,6 +17,7 @@ const Checkout:FC = () => {
     },[items])
 
   return (
+  <div className={ classes.page}>
     <div className={ classes.wrapper }>
         <div className={ classes.address }>
             <div>
@@ -55,6 +57,10 @@ const Checkout:FC = () => {
             </div>
         </div>
     </div>
+    <div>
+        <Bag/>
+    </div>
+  </div>
 
   )
 }

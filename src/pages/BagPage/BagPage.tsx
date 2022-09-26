@@ -5,6 +5,7 @@ import LongCard from '../../components/LongCard/LongCard'
 import classes from './BagPage.module.scss'
 import { ItemsType } from '../../types/product/ItemsType'
 import { Link } from 'react-router-dom'
+import Bag from '../../components/Bag/Bag'
 
 
 
@@ -13,7 +14,9 @@ const BagPage: FC= () => {
   const [arrayItems, setArrayItems] = useState<ItemsType[]>(Object.values(items.items))
 
   return (
+    <div className={ classes.page}>
     <div className={classes.wrapper}>
+      
         <BackButton />
         <div className={classes.title}> Check your Bag items</div>
 
@@ -29,6 +32,10 @@ const BagPage: FC= () => {
            
                       
     </div>
+    <div>
+        <Bag/>
+    </div>
+</div>
   )
 }
 

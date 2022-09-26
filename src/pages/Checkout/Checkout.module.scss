@@ -34,7 +34,7 @@
 .line{
     border: 1px solid rgba(7, 7, 7, 0.38);
     width: 90%;
-    margin: 25px;
+    margin: 20px;
 
 }
 .title{
@@ -93,5 +93,13 @@ padding: 8px 24px;
 background-color:white;
 border: 1px solid #1A1F16;
 border-radius: 11px;
+
+}
+.page{
+      
+    position: relative;
+    display:flex;
+    justify-content: space-between;
+    width:80%
 
 }

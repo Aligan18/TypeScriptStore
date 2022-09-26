@@ -7,6 +7,7 @@ import useActions from '../../нooks/useActions'
 import classes from './InfoPage.module.scss'
 
 import BackButton from '../../components/BackButton/BackButton'
+import Bag from '../../components/Bag/Bag'
 
 const InfoPage:FC = () => {
 
@@ -19,6 +20,7 @@ const backToHome= ()=>{
 }
 
   return (
+<div className={ classes.page}>
     <div className={ classes.wrapper}>
         <BackButton onClick={()=>backToHome()}/>
       <div className={classes.short_info}>
@@ -43,6 +45,10 @@ const backToHome= ()=>{
 
     </div>
     </div>
+    <div>
+      <Bag/>
+    </div>
+</div>
   )
 }
 

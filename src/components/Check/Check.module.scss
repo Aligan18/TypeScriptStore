@@ -1,0 +1,95 @@
+.check_space{
+    
+        position: sticky;
+        top: 11px;
+        right: 0;
+        width: 345px;
+        display: flex;
+        align-items: start;
+        gap: 10px;  
+        
+        padding: 11px 20px;
+        
+}
+
+.wrapper {
+    width: 243px;
+    border-radius: 12px;
+    background-color: white;
+   height:280px;
+    padding: 20px 20px;
+   
+} 
+
+.title{
+    padding: 8px 0px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    
+    color: #000000;
+}
+
+.total{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0px;
+font-family: 'Cabin';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+letter-spacing: -0.02em;
+
+/* Font/Tertiary */
+
+color: #60695C;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.order{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    font-family: 'Cabin';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 24px;
+
+/* Font/Danger */
+
+color: #E5252C;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.button {
+    margin-top:25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    background-color:black;
+    border-radius:11px;
+    padding:8px 0px;
+    font-family: 'Cabin';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+letter-spacing: -0.02em;    
+}
