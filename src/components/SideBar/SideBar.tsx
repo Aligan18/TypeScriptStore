@@ -5,33 +5,25 @@ import { initializeApp } from "firebase/app";
 import {ItemsType} from '../../types/product/ItemsType'
 import useActions from '../../нooks/useActions';
 import { EProducts, ESelectedProductType } from '../../types/selectedProducts/selectedProducts';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import {app } from '../../firebase/firebase'
+import { useAuth } from '../../нooks/useAuth';
+import { RoutersPathEnum } from '../../router/router';
 
 const SideBar : FC = () => {
+  const {Auth}  = useAuth()
+  const {DeleteProductsHomePage ,DeleteUser } = useActions()
 
-  const {DeleteProductsHomePage} = useActions()
+  const [clicked , setClicked] = useState <any>({
+                                            [EProducts.NOTEBOOKS]:false ,
+                                            [EProducts.SMARTPHONES]: false ,
+                                            [EProducts.SMART_TV]: false ,
+                                            [EProducts.SMART_WATCHES]: false ,
+                                          })
 
-const [clicked , setClicked] = useState <any>({
-                                          [EProducts.NOTEBOOKS]:false ,
-                                          [EProducts.SMARTPHONES]: false ,
-                                          [EProducts.SMART_TV]: false ,
-                                          [EProducts.SMART_WATCHES]: false ,
-                                        })
-
-const [showProducts , setShowProducts ] = useState(false)
+  const [showProducts , setShowProducts ] = useState(false)
       // const [items , setItems] =useState<ItemsType[] >([])
         const   fetchItems = (key: string) =>{
-          // TODO: Replace the following with your app's Firebase project configuration
-          // See: https://firebase.google.com/docs/web/learn-more#config-object
-          const firebaseConfig = {
-            // ...
-            // The value of `databaseURL` depends on the location of the database
-            databaseURL: "https://react-electronics-store-default-rtdb.europe-west1.firebasedatabase.app",
-          };
-          // Initialize Firebase
-          const app = initializeApp(firebaseConfig);
-        // Initialize Realtime Database and get a reference to the service
-
           const dbRef = ref(getDatabase(app));
           get(child(dbRef, key)).then((snapshot) => {
             if (snapshot.exists()) {
@@ -57,12 +49,15 @@ const [showProducts , setShowProducts ] = useState(false)
   useEffect(()=>{
           fetchItems(EProducts.SMART_WATCHES)
       },[])
-
+  
+  const Logout =()=>{
+    DeleteUser()
+  }
  
   
   const {AddProductsHomePage}=useActions()
 
-      const ClickCheck =(key: string, addItem:any , deleteItem:any)=>{
+  const ClickCheck =(key: string, addItem:any , deleteItem:any)=>{
 
       clicked[key] ?
             deleteItem(key)
@@ -74,9 +69,17 @@ console.log(clicked)
 
   return (
     <div className={ classes.wrapper}>
+      {Auth?
+          <i onClick={Logout}  className={classes.icon + " fa-solid fa-door-open"}></i>
+          :
+          <Link to={RoutersPathEnum.LOGIN}>
+              <i  className={classes.icon + " fa-solid fa-user"}></i> 
+          </Link>
+      }
       <Link to="/">
         <i className={classes.icon + " fa-solid fa-house-chimney"} aria-hidden="true"></i>
       </Link>
+      <i className={classes.icon + " fa fa-shopping-bag"} aria-hidden="true"></i>
       <i onClick={ ()=>setShowProducts(!showProducts)}className={classes.icon + " fa fa-bars"} aria-hidden="true"></i>
       
       {showProducts && <div className={classes.products}>
@@ -94,8 +97,8 @@ console.log(clicked)
           </div>
       </div>
       }
-      <i className={classes.icon + " fa-solid fa-store"}></i> 
-      <i className={classes.icon + " fa fa-shopping-bag"} aria-hidden="true"></i>
+      
+     
        </div>
   )
 }
