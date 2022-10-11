@@ -1,25 +1,27 @@
 import { useForm, SubmitHandler, } from "react-hook-form";
 import React , {FC} from "react"
 import classes from "./Forms.module.scss"
-
-type Inputs = {
-  shipping: string,
-  street: string,
-  city: string,
-  state: string,
-  country: string,
-};
+import {IAddress} from "../../types/address/address"
+import {addAddressToBase} from '../../fetching/addressToBase'
+import { useAuth } from "../../нooks/useAuth";
 
 
 
 interface IForms {
   closeModal:(flag: boolean) => void;
-
+  setAddress:(address:IAddress)=> void
 }
-const  Forms : FC<IForms> = ({closeModal} ) => {
+const  Forms : FC<IForms> = ({closeModal,setAddress} ) => {
+  
+  const {Auth,email}=useAuth()
+  const { register, handleSubmit, watch, formState: { errors } } = useForm<IAddress>();
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = data =>{ console.log(data); closeModal(false)};
+
+  const onSubmit: SubmitHandler<IAddress> = data =>{
+    addAddressToBase(data,Auth,email);
+    setAddress({...data})
+    console.log(data); closeModal(false)
+  };
 
   console.log(watch("city")) // watch input value by passing the name of it
 
@@ -32,9 +34,9 @@ const  Forms : FC<IForms> = ({closeModal} ) => {
                       </div>
                         {/* register your input into the hook by invoking the "register" function */}
                         <p className={classes.title}>Your Name</p>
-                        <input className={classes.input}  {...register("shipping" ,{ required: true })} />
+                        <input className={classes.input}  {...register("name" ,{ required: true })} />
                          {/* errors will return when field validation fails  */}
-                         {errors.shipping && <span className={classes.error}>This field is required</span>}
+                         {errors.name && <span className={classes.error}>This field is required</span>}
 
                          <p className={classes.title}>Country</p>
                         <input className={classes.input}  {...register("country" ,{ required: true })} />
@@ -55,9 +57,9 @@ const  Forms : FC<IForms> = ({closeModal} ) => {
                     
                         {/* include validation with required or other standard HTML validation rules */}
                         <p className={classes.title}>Phone Number</p>
-                        <input className={classes.input} {...register("state", { required: true , minLength: 11, maxLength: 12})} />
+                        <input className={classes.input} {...register("phone", { required: true , minLength: 11, maxLength: 12})} />
                          {/* errors will return when field validation fails  */}
-                         {errors.state && <span className={classes.error}>This field is required</span>}
+                         {errors.phone && <span className={classes.error}>This field is required</span>}
                         
                         <button className={classes.button}  type="submit" >Add Address</button>
                    

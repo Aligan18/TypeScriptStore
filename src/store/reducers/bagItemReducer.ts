@@ -1,4 +1,4 @@
-import { ItemsType } from "../../types/product/ItemsType";
+import { EnumProductInfoActions, ItemsType } from "../../types/product/ItemsType";
 import {InitialStateTypes, BagItemActions, EnumBagItemActions} from "../../types/bag/bagItems"
 
 const InitialState :InitialStateTypes = {
@@ -45,6 +45,11 @@ export const bagItemReducer =(state= InitialState, action:BagItemActions):Initia
                    return {...state, quantity:{...state.quantity, [action.payment.id]: state.quantity[action.payment.id] - 1 },
                             totalAmount: state.totalAmount - action.payment.amount ,
                 }
+        case EnumBagItemActions.DELETE_ALL_ITEMS:
+                return{...state,
+                    items :{},
+                    totalAmount:0,
+                    quantity:{},}
         default:
             return {...state};
     }
