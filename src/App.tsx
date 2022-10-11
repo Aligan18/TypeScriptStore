@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './App.module.scss'
 import SideBar from './components/SideBar/SideBar';
-import { privateRoutes, publicRoutes } from './router/router';
+import { privateRoutes, publicRoutes, RoutersPathEnum } from './router/router';
 
 
 import {
@@ -34,7 +34,7 @@ function App() {
 
                       <Route
                           path="*"
-                          element={<Navigate to="/" replace />}
+                          element={<Navigate to={RoutersPathEnum.HOME} replace />}
                       />  
                   </Routes>
                 
@@ -54,7 +54,7 @@ function App() {
                         )}
                       <Route
                           path="*"
-                          element={<Navigate to="/" replace />}
+                          element={<Navigate to={RoutersPathEnum.LOGIN } replace />}
                       />
                   </Routes>
                 

@@ -24,11 +24,11 @@ const BagPage: FC= () => {
            <LongCard item={item} key={item.id}/>
           )}
         
-        <div className={classes.button_box}>
+        {/* <div className={classes.button_box}>
           <Link to={"/checkout"} >
             <button >Checkout</button>
             </Link>
-        </div>
+        </div> */}
            
                       
     </div>

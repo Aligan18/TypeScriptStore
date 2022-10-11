@@ -42,7 +42,7 @@ const Bag : FC<IBag> = (address) : any=> {
             <div className={classes.amount}>{totalAmount}</div>
 
             {history.location.pathname ===  RoutersPathEnum.BAG?
-               <div className={classes.button_wrapper}>
+               arrayItems.length !== 0 && <div  className={classes.button_wrapper}>
                <Link to={RoutersPathEnum.CHECKOUT} >
                  <button  className={classes.button}>
                      <i className={classes.icon + " fa fa-shopping-bag"} aria-hidden="true"></i>
@@ -51,7 +51,7 @@ const Bag : FC<IBag> = (address) : any=> {
                </Link>
              </div>
              :
-             <div className={classes.button_wrapper}>
+             arrayItems.length !== 0 && <div className={classes.button_wrapper}>
               <Link to={RoutersPathEnum.BAG} >
                 <button  className={classes.button}>
                     <i className={classes.icon + " fa fa-shopping-bag"} aria-hidden="true"></i>
