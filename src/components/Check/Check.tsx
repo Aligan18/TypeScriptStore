@@ -54,7 +54,7 @@ const Check : FC <ICheck> = ({address}) => {
       <div>Order Total:</div> <div>{totalAmount+shippingAmount} тг</div>
       </div>
      <hr></hr>
-     <div onClick={()=>addOrder(email , order, address )}  className={classes.button}>Place your order</div>
+     {totalAmount !== 0 && <div onClick={()=>addOrder(email , order, address )}  className={classes.button}>Place your order</div>}
   </div>
 </div>
 )}
