@@ -14,7 +14,8 @@ export enum EnumBagItemActions{
     ADD_ITEM="ADD_ITEM",
     DELETE_ITEM="DELETE_ITEM",
     INCREASE_QUANTITY = "INCREASE",
-    DECREASE_QUANTITY = "DECREASE" 
+    DECREASE_QUANTITY = "DECREASE" ,
+    DELETE_ALL_ITEMS = "DELETE_ALL_ITEMS"
 }
 
 
@@ -37,4 +38,8 @@ interface IDecrease {
     payment:{id:string,amount:number }
 }
 
-export type BagItemActions = |IAddItem|IDeleteItem|IIncrease|IDecrease
+interface IDeleteAllItems {
+    type :EnumBagItemActions.DELETE_ALL_ITEMS
+}
+
+export type BagItemActions = |IAddItem|IDeleteItem|IIncrease|IDecrease|IDeleteAllItems

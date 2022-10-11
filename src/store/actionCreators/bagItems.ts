@@ -27,3 +27,10 @@ export const decreaseItem = (item:ItemsType) =>{
         dispatch({ type:EnumBagItemActions.DECREASE_QUANTITY, payment:{id:item.id, amount:item.unitPrice}})
     }
 }
+
+export const deleteAllBagItem = () =>{
+    return (dispatch: Dispatch<BagItemActions>)=>{
+        dispatch({ type:EnumBagItemActions.DELETE_ALL_ITEMS })
+    }
+    
+}

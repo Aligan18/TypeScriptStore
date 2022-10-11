@@ -9,25 +9,27 @@ import ImageCard from '../ImageCard/ImageCard'
 import classes from './Bag.module.scss'
 import Check from '../Check/Check';
 import { createBrowserHistory } from 'history';
+import { IAddress } from '../../types/address/address'
 
-const Bag : FC = () : any=> {
+interface IBag{
+  address?:IAddress
+}
+
+const Bag : FC<IBag> = (address) : any=> {
  
   const {items,totalAmount } = useTypedSelector(state=> state.bagItems)
 
   const [arrayItems , setArrayItems] = useState(Object.values(items))
  const history = createBrowserHistory()
 
-  
+    console.log('history',history)
 
   useEffect(()=>{
     setArrayItems(Object.values(items))
 
   },[items])
-  console.log("location", history.location)
-  if(history.location.pathname === "/checkout"){
-     return <Check/>
-  }
-  else {
+  
+
     return (
       <div className={ classes.wrapper}>
         <div className={ classes.bag_space}> 
@@ -38,7 +40,18 @@ const Bag : FC = () : any=> {
               <CardList style={CardStyleEnum.flexStart}  items={arrayItems} renderItem={(item:ItemsType)=> <div key={item.id} className={classes.image}> <ImageCard item={item} img_url={item.primaryImage.medium} /></div> } />
             </div>
             <div className={classes.amount}>{totalAmount}</div>
-            <div className={classes.button_wrapper}>
+
+            {history.location.pathname ===  RoutersPathEnum.BAG?
+               <div className={classes.button_wrapper}>
+               <Link to={RoutersPathEnum.CHECKOUT} >
+                 <button  className={classes.button}>
+                     <i className={classes.icon + " fa fa-shopping-bag"} aria-hidden="true"></i>
+                     Checkout
+                 </button>
+               </Link>
+             </div>
+             :
+             <div className={classes.button_wrapper}>
               <Link to={RoutersPathEnum.BAG} >
                 <button  className={classes.button}>
                     <i className={classes.icon + " fa fa-shopping-bag"} aria-hidden="true"></i>
@@ -47,11 +60,14 @@ const Bag : FC = () : any=> {
               </Link>
             </div>
             
+            }
+           
+            
         </div>
           
       </div>
     )
-  }
+  
                                 
 
  
