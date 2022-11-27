@@ -5,10 +5,11 @@ import InfoPage from "../pages/InfoPage/InfoPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
 import MyOrdersPage from "../pages/MyOrdersPage/MyOrdersPage";
+import AdminPage from "../pages/AdminPage/AdminPage";
 
 
 export enum RoutersPathEnum{
-
+    ADMIN ="/admin",
     HOME ="/",
     CHECKOUT ="/checkout",
     BAG="/bag",
@@ -40,4 +41,9 @@ export const privateRoutes : publicRoutesTypes[] = [
     {path: RoutersPathEnum.BAG, element: <BagPage/>},
     {path: RoutersPathEnum.INFO, element: <InfoPage/>},
     {path: RoutersPathEnum.MY_ORDERS_PAGE, element: <MyOrdersPage/>},
+]
+
+export const adminRoutes : publicRoutesTypes[] = [
+    {path: RoutersPathEnum.ADMIN, element: <AdminPage/>},
+    
 ]

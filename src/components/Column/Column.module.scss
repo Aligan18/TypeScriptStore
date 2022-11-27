@@ -1,0 +1,17 @@
+.wrapper {
+ width: 100%;
+ background-color: white;
+ border-radius:10px;
+    height:80px;
+    margin-top:10px;
+display:flex;
+
+}
+.cell{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 14%;
+    padding: 10px;
+    border-right: 1px solid rgba(85, 85, 85, 0.688);
+}

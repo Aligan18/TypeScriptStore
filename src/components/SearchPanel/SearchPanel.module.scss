@@ -7,7 +7,8 @@
     height : 83px
 }
 .input{
-    border-radius: 13px;
+    
+    
     width: 507px; 
     height:38px;
 
@@ -19,5 +20,11 @@
     background: #FFFFFF;
     box-shadow: 0px 4px 16px rgba(26, 31, 22, 0.15);
     border-radius: 17px;
+
+    @media only screen and (min-width: 0px) and (max-width: 768px) {
+        width: 80%; 
+    height:11px;
+
+    }
 
 }

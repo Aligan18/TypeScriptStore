@@ -11,7 +11,7 @@ import { useAuth } from '../../нooks/useAuth';
 import { RoutersPathEnum } from '../../router/router';
 
 const SideBar : FC = () => {
-  const {Auth}  = useAuth()
+  const {Auth , admin}  = useAuth()
   const {DeleteProductsHomePage ,DeleteUser } = useActions()
 
   const [clicked , setClicked] = useState <any>({
@@ -68,18 +68,22 @@ const SideBar : FC = () => {
 console.log(clicked)
 
   return (
+    <div className={classes.bottom}>
     <div className={ classes.wrapper}>
+      <div className={ classes.wrapper_icon}>
       {Auth?
           <i onClick={Logout}  className={classes.icon + " fa-solid fa-door-open"}></i>
           :
-          <Link to={RoutersPathEnum.LOGIN}>
+          <Link className={classes.link} to={RoutersPathEnum.LOGIN}>
               <i  className={classes.icon + " fa-solid fa-user"}></i> 
           </Link>
       }
-      <Link to="/">
+      <Link className={classes.link} to="/">
         <i className={classes.icon + " fa-solid fa-house-chimney"} aria-hidden="true"></i>
       </Link>
-      <i className={classes.icon + " fa fa-shopping-bag"} aria-hidden="true"></i>
+      <Link className={classes.link} to={RoutersPathEnum.MY_ORDERS_PAGE}>
+        <i className={classes.icon + " fa fa-shopping-bag"} aria-hidden="true"></i>
+      </Link>
       <i onClick={ ()=>setShowProducts(!showProducts)}className={classes.icon + " fa fa-bars"} aria-hidden="true"></i>
       
       {showProducts && <div className={classes.products}>
@@ -97,8 +101,13 @@ console.log(clicked)
           </div>
       </div>
       }
-      
+      </div>
+      {admin && <Link className={classes.link} to={RoutersPathEnum.ADMIN}>
+        <div><i className={classes.icon_admin + ` fa-solid fa-address-card`}></i></div>
+        </Link>
+        }
      
+       </div>
        </div>
   )
 }
