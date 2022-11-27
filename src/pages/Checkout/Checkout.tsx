@@ -11,6 +11,7 @@ import { IAddress } from '../../types/address/address'
 import { getAddressToBase } from '../../fetching/addressToBase'
 import {useAuth} from '../../нooks/useAuth'
 import Check from '../../components/Check/Check'
+import Forms from '../../components/Forms/Forms'
 
 const Checkout:FC = () => {
 
@@ -42,23 +43,25 @@ const Checkout:FC = () => {
   return (
   <div className={ classes.page}>
 
-    {showModal&& <Modal closeModal={setShowModal} setAddress={setAddress} /> }
+    {showModal&& <Modal renderItem= {()=> <Forms closeModal={setShowModal} setAddress={setAddress}/>}/>}
     
     <div className={ classes.wrapper }>
         <div className={ classes.address }>
             <div>
                   <div className={ classes.title}>
                   Shipping Address
+                     
                   </div>
+                  <hr></hr>
                   <div className={ classes.info}>
                     <div>
-                        <div> Your Name : {address.name}</div>
-                        <div> Country : {address.country}</div>
-                        <div> City : {address.city}</div>
+                        <div className={ classes.text}> Your Name  :  {address.name}</div>
+                        <div className={ classes.text}> Country  :  {address.country}</div>
+                        <div className={ classes.text}> City  :  {address.city}</div>
                     </div>
                     <div>
-                        <div> Street Name : {address.street}</div>
-                        <div> Phone Number : {address.phone}</div>
+                        <div className={ classes.text}> Street Name  : {address.street}</div>
+                        <div className={ classes.text}>  Phone Number  : {address.phone}</div>
                         
 
                     </div>

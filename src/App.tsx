@@ -1,7 +1,8 @@
 import React from 'react';
 import classes from './App.module.scss'
 import SideBar from './components/SideBar/SideBar';
-import { privateRoutes, publicRoutes, RoutersPathEnum } from './router/router';
+import { privateRoutes, publicRoutes, RoutersPathEnum ,adminRoutes } from './router/router';
+import useWindowDimensions from './нooks/useWindowDimensions'
 
 
 import {
@@ -14,42 +15,39 @@ import Check from './components/Check/Check';
 import { useAuth } from './нooks/useAuth';
 
 
-function App() {
+
+ function App() {
+  const { height, width } = useWindowDimensions();
+  const {Auth,admin } = useAuth()
   
-  const {Auth} = useAuth()
+  console.log("ADMIN" , width)
   
-  return (<>
-            {Auth ?
-                <div className={ classes.wrapper }>
-                  <div>
-                  <SideBar/>
-                  </div>
+  return (<div className={ classes.wrapper }>
+             {(width >= 768) && <SideBar/>} 
+
+            {Auth ? <>
+                  
                   <Routes>
                       {privateRoutes.map(route =>
-                        <Route path={route.path} element={route.element} >
-                            
-
-                        </Route>
+                        <Route path={route.path} element={route.element} />
                         )}
+                      {  admin && adminRoutes.map((route) =>
+                        <Route path={route.path} element={route.element}/>
+                        )
+                  }
 
                       <Route
                           path="*"
                           element={<Navigate to={RoutersPathEnum.HOME} replace />}
                       />  
                   </Routes>
-                
-                </div>
+                </>
           :
 
-          <div className={ classes.wrapper }>
-                  <div>
-                  <SideBar/>
-                  </div>
+                <>
                   <Routes>
                       {publicRoutes.map(route =>
                         <Route path={route.path} element={route.element} >
-                            
-
                         </Route>
                         )}
                       <Route
@@ -57,12 +55,11 @@ function App() {
                           element={<Navigate to={RoutersPathEnum.LOGIN } replace />}
                       />
                   </Routes>
-                
-                </div>
+            </>
+      }
 
-          
-                      }
-  </>);
+      {(width <= 768) && <SideBar/>} 
+  </div>);
 }
 
 export default App;

@@ -42,7 +42,7 @@
 flex-direction: column;
 justify-content: center;
 align-items: flex-start;
-padding: 8px 8px 24px;
+padding: 8px 8px 13px;
 gap: 16px;
 
 
@@ -104,7 +104,12 @@ border-radius: 11px;
 
 }
 .info {
+    width: 110%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.text {
+    margin:10px;
 }

@@ -10,6 +10,7 @@ import SearchPanel from '../../components/SearchPanel/SearchPanel'
 import classes from "./HomePage.module.scss"
 
 import {ItemsType} from '../../types/product/ItemsType'
+import useWindowDimensions from '../../нooks/useWindowDimensions';
 
 
 
@@ -21,7 +22,7 @@ const HomePage: FC = () => {
   const [items , setItems] =useState<ItemsType[][] >([[]])
   const [findItems, setFindItems] = useState<ItemsType[][]>([[]])
   const [searchValue, setSearchValue] = useState<string>("")
-
+  const { height, width } = useWindowDimensions();
 
   useEffect(()=>{
     setItems (Object.values(products))
@@ -58,7 +59,8 @@ const HomePage: FC = () => {
         }
         </div>
         <div>
-          <Bag/>
+
+          {width >= 768 && <Bag/>}
         </div>
      </div>  
     

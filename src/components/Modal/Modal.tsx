@@ -4,21 +4,17 @@ import classes from './Modal.module.scss'
 import Forms from '../Forms/Forms'
 import { IAddress } from '../../types/address/address'
 
-interface IModal {
-  closeModal: (flag: boolean) => void
-  setAddress:(address:IAddress)=> void
+interface IModal <T> {
+  renderItem: () => React.ReactNode;
 }
 
-const Modal : FC <IModal> = ({closeModal,setAddress}) => {
-  return (<>
-   
-    <div  className={classes.wrapper}>
+export default  function  Modal<T>(props:IModal<T>)  {
+  return <div  className={classes.wrapper}>
         <div className={classes.center}>
 
-            <Forms closeModal={closeModal} setAddress={setAddress}/>
+           {props.renderItem()}
         </div>
     </div>
-    </> )
+     
 }
 
-export default Modal

@@ -7,9 +7,12 @@ import { InitialStateTypes } from "../types/bag/bagItems"
 
 
 export const addOrderToBase =async(email: string| null, order:InitialStateTypes ,address:IAddress)=>{
+    const newDate =new Date()
     const  data = {
         address ,
         order, 
+        status: "working",
+        data : newDate
     } 
     const shortEmail = email?.split('@')
     if(shortEmail){
