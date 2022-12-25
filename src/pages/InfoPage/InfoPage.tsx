@@ -8,9 +8,10 @@ import classes from './InfoPage.module.scss'
 
 import BackButton from '../../components/BackButton/BackButton'
 import Bag from '../../components/Bag/Bag'
+import useWindowDimensions from '../../нooks/useWindowDimensions'
 
 const InfoPage:FC = () => {
-
+  const {width,height} = useWindowDimensions()
   const item = useTypedSelector(state=>state.product)
 
   const {RemoveProductInfo}=useActions()
@@ -45,9 +46,9 @@ const backToHome= ()=>{
 
     </div>
     </div>
-    <div>
+    {width >= 780 && <div>
       <Bag/>
-    </div>
+    </div>}
 </div>
   )
 }

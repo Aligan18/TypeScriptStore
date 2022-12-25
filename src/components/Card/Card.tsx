@@ -26,17 +26,19 @@ const Card:FC<CardProps> = ({item}) => {
   return ( <>
    { imageNotEmpty &&
      <div className={classes.card}>
-      <Link onClick={()=>goToProductInfo()} className={classes.link} to={RoutersPathEnum.INFO + item.id}>
-        <div className={classes.wrapper} >
-          <ImageCard setImageNotEmpty={setImageNotEmpty}  item={item} img_url={item.primaryImage.medium}/>
-        </div>
-      </Link>
+        <div>
+        <Link onClick={()=>goToProductInfo()} className={classes.link} to={RoutersPathEnum.INFO + item.id}>
+          <div className={classes.wrapper} >
+            <ImageCard setImageNotEmpty={setImageNotEmpty}  item={item} img_url={item.primaryImage.medium}/>
+          </div>
+        </Link>
 
-        <div className={classes.bottom}>
-         
-           <InfoCard  info={item} size={ESizeTypes.small} stars={item.rating}/>
+          <div className={classes.bottom}>
           
-        </div>
+            <InfoCard  info={item} size={ESizeTypes.small} stars={item.rating}/>
+            
+          </div>
+      </div>
     </div>
    }
    </>

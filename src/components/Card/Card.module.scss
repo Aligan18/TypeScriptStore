@@ -2,6 +2,17 @@
     display:inline-block;
     width: fit-content;
     height:232px;
+
+
+    @media only screen
+    and (min-width: 120px)
+    and (max-width: 768px) {
+        display:flex;
+        justify-content: center;
+         width: 100%;
+
+}   
+
 }
 
 
