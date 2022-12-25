@@ -61,7 +61,7 @@
     display: flex;
     justify-content: center;
     align-items:flex-start;
-
+   
 }
 
 
@@ -76,7 +76,10 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    
+    @media only screen and (min-width: 0px) and (max-width: 768px) {
+        margin-top: 24px;
+    }
+   
 }
 .icon_body_large{
     background-color:black;
@@ -104,6 +107,10 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+    @media only screen and (min-width: 0px) and (max-width: 768px) {
+        font-size: 31px;
+
+    }
 }
 .description_large{
     margin-top: 40px;
@@ -131,7 +138,7 @@
     display: flex;
     justify-content: center;
     align-items:flex-start;
-
+    
 }
 
 .button_text{

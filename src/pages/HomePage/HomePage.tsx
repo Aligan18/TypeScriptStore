@@ -60,7 +60,7 @@ const HomePage: FC = () => {
         </div>
         <div>
 
-          {width >= 768 && <Bag/>}
+          {width >= 780 && <Bag/>}
         </div>
      </div>  
     

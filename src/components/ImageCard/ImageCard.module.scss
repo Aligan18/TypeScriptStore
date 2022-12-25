@@ -8,6 +8,14 @@
     border-radius:22px;
     padding: 7px 16px;
     box-shadow: 0px 4px 16px rgb(26 31 22 / 15%);
+
+    @media only screen
+    and (min-width: 120px)
+    and (max-width: 768px) {
+      
+         width: fit-content;
+
+}   
 }
 
 .img{
