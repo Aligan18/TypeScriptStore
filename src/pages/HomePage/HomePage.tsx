@@ -34,7 +34,7 @@ const HomePage: FC = () => {
         const array:any[] =[]
         
         items.map((item)=>{
-             const findProduct  =  item.filter(product =>product.name.includes(searchValue))
+             const findProduct  =  item.filter(product => product.name.toUpperCase().includes(searchValue.toUpperCase()))
              console.log("findProduct", findProduct)
               array.push(findProduct) })
         setFindItems( array )    
