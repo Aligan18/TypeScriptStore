@@ -1,17 +1,15 @@
-import React, { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect } from "react";
 import classes from "./SideBar.module.scss";
-import { getDatabase, ref, onValue, child, get } from "firebase/database";
-import { initializeApp } from "firebase/app";
-import { ItemsType } from "../../types/product/ItemsType";
+import { getDatabase, ref, child, get } from "firebase/database";
+
 import useActions from "../../нooks/useActions";
-import {
-  EProducts,
-  ESelectedProductType,
-} from "../../types/selectedProducts/selectedProducts";
-import { Link, useNavigate } from "react-router-dom";
+import { EProducts } from "../../types/selectedProducts/selectedProducts";
+import { Link } from "react-router-dom";
 import { app } from "../../firebase/firebase";
 import { useAuth } from "../../нooks/useAuth";
 import { RoutersPathEnum } from "../../router/router";
+
+import { SideBarIcon } from "../SideBarIcon/SideBarIcon";
 
 const SideBar: FC = () => {
   const { Auth, admin } = useAuth();
@@ -62,41 +60,37 @@ const SideBar: FC = () => {
   const ClickCheck = (key: string, addItem: any, deleteItem: any) => {
     clicked[key] ? deleteItem(key) : addItem(key);
   };
-
-  console.log(clicked);
+  const sideBarIcons = [
+    { path: RoutersPathEnum.HOME, icon: "fa-solid fa-house-chimney" },
+    { path: RoutersPathEnum.BAG, icon: "fa-solid fa-cart-shopping" },
+    { path: RoutersPathEnum.MY_ORDERS_PAGE, icon: "fa fa-shopping-bag" },
+  ];
 
   return (
     <div className={classes.bottom}>
       <div className={classes.wrapper}>
         <div className={classes.wrapper_icon}>
           {Auth ? (
-            <i
-              onClick={Logout}
-              className={classes.icon + " fa-solid fa-door-open"}
-            ></i>
+            <div className={classes.selected_icon}>
+              <i
+                onClick={Logout}
+                className={classes.icon + " fa-solid fa-door-open"}
+              ></i>
+            </div>
           ) : (
-            <Link className={classes.link} to={RoutersPathEnum.LOGIN}>
-              <i className={classes.icon + " fa-solid fa-user"}></i>
-            </Link>
+            <div className={classes.selected_icon}>
+              <Link className={classes.link} to={RoutersPathEnum.LOGIN}>
+                <i className={classes.icon + " fa-solid fa-user"}></i>
+              </Link>
+            </div>
           )}
-          <Link className={classes.link} to={RoutersPathEnum.HOME}>
-            <i
-              className={classes.icon + " fa-solid fa-house-chimney"}
-              aria-hidden="true"
-            ></i>
-          </Link>
-          <Link className={classes.link} to={RoutersPathEnum.BAG}>
-            <i
-              className={classes.icon + " fa-solid fa-cart-shopping"}
-              aria-hidden="true"
-            ></i>
-          </Link>
-          <Link className={classes.link} to={RoutersPathEnum.MY_ORDERS_PAGE}>
-            <i
-              className={classes.icon + " fa fa-shopping-bag"}
-              aria-hidden="true"
-            ></i>
-          </Link>
+          {sideBarIcons.map((icon) => (
+            <SideBarIcon
+              styles={classes.link}
+              icon={icon.icon}
+              path={icon.path}
+            />
+          ))}
           <i
             onClick={() => setShowProducts(!showProducts)}
             className={classes.icon + " fa fa-bars"}

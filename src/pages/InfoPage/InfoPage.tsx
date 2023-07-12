@@ -11,7 +11,8 @@ import useWindowDimensions from "../../нooks/useWindowDimensions";
 import BackButton from "../../components/BackButton/BackButton";
 
 const InfoPage: FC = () => {
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
+
   const item = useTypedSelector((state) => state.product);
 
   const { RemoveProductInfo } = useActions();

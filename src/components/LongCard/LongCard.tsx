@@ -33,12 +33,10 @@ const LongCard: FC<ILongCard> = ({ item }) => {
             />
           </div>
           <div className={classes.counters_box}>
-            {" "}
-            {item && <Counter item={item} />}{" "}
+            {item && <Counter item={item} />}
           </div>
           <div onClick={() => ClickOnCross()} className={classes.counters_box}>
-            {" "}
-            <i className="fa-solid fa-xmark"></i>{" "}
+            <i className={classes.pointer + " fa-solid fa-xmark"}></i>
           </div>
         </div>
       )}

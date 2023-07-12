@@ -1,11 +1,23 @@
-.wrapper{
-    margin: 10px;
-    width: 40px;
+.wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  width: 40px;
 }
 .icon {
-    font-size:18px ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin:25px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
+}
+
+.number {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
 }

@@ -2,12 +2,12 @@ import React, { FC, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RoutersPathEnum } from "../../router/router";
 import { ItemsType } from "../../types/product/ItemsType";
-import useActions from "../../нooks/useActions";
+
 import { useTypedSelector } from "../../нooks/useTypeSelector";
 import CardList, { CardStyleEnum } from "../CardLists/CardLists";
 import ImageCard from "../ImageCard/ImageCard";
 import classes from "./Bag.module.scss";
-import Check from "../Check/Check";
+
 import { createBrowserHistory } from "history";
 import { IAddress } from "../../types/address/address";
 
