@@ -8,7 +8,7 @@ const initialState:IInitialState ={
 export const productsReducer = (state = initialState,   action:ProductsActions):IInitialState => {
         switch (action.type) {
             case EProductsActions.ADD_PRODUCT:
-                return {...state , products: {...state.products ,[action.payment.key] : action.payment.newProduct}}
+                return {...state , products: {[action.payment.key] : action.payment.newProduct, ...state.products }}
 
             case EProductsActions.DELETE_PRODUCT:
                 
