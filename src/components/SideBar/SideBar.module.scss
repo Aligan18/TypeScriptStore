@@ -26,9 +26,11 @@
 }
 
 .wrapper_icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  padding-top: 50px;
+  display: grid;
+  gap: 25px;
+  justify-items: center;
+
   align-items: center;
   color: black;
 
@@ -52,12 +54,14 @@
 }
 
 .link {
-  color: black;
+  width: fit-content;
+  height: fit-content;
+  color: rgb(0, 0, 0);
 }
 
 .icon {
   cursor: pointer;
-  margin-top: 50px;
+
   font-size: 24px;
 
   @media only screen and (min-width: 120px) and (max-width: 768px) {
@@ -94,4 +98,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.selected_icon {
+  padding: 10px;
+  border-radius: 8px;
+  width: fit-content;
+  height: fit-content;
 }

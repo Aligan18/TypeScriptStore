@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import classes from "./BackButton.module.scss";
-import { Link, useNavigate } from "react-router-dom";
-import { RoutersPathEnum } from "../../router/router";
+import { useNavigate } from "react-router-dom";
 
 interface IBackButton {
   onClick?: (event: MouseEvent) => void;

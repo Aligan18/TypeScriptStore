@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 
 import { Link, useNavigate } from "react-router-dom";
 import { RoutersPathEnum } from "../../router/router";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
 import useActions from "../../нooks/useActions";
 
@@ -29,7 +29,7 @@ const LoginPage: FC = () => {
 
         const user = userCredential.user;
         AddUser({ email: user.email, id: user.uid });
-        navigate(RoutersPathEnum.HOME);
+        navigate(-1);
         console.log("user", user);
         return user;
       })
@@ -47,7 +47,7 @@ const LoginPage: FC = () => {
     <div className={classes.wrapper}>
       <div className={classes.box}>
         <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-          <p>LOGIN</p>
+          <h2>LOGIN</h2>
           <hr></hr>
           <div className={classes.inputs_box}>
             <p className={classes.title}>Email</p>
@@ -71,12 +71,16 @@ const LoginPage: FC = () => {
               )}
             </div>
           </div>
-          <div className={classes.button}>
+          <div className={classes.button_wrapper}>
             <button className={classes.button} type="submit">
               Login
             </button>
             <Link to={RoutersPathEnum.REGISTRATION}> SignUp</Link>
           </div>
+          <hr />
+          <h2 className={classes.h_text}>Use test account for testing </h2>
+          <h3 className={classes.h_text}>Login: test@gmail.com</h3>
+          <h3 className={classes.h_text}>Password: testtest</h3>
         </form>
       </div>
     </div>
