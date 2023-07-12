@@ -1,21 +1,18 @@
-import React,{FC} from 'react'
-import classes from './BackButton.module.scss'
-import { Link } from 'react-router-dom'
-import { RoutersPathEnum } from '../../router/router'
+import React, { FC } from "react";
+import classes from "./BackButton.module.scss";
+import { Link, useNavigate } from "react-router-dom";
+import { RoutersPathEnum } from "../../router/router";
 
-interface IBackButton{
-    onClick?: (event: MouseEvent) => void
+interface IBackButton {
+  onClick?: (event: MouseEvent) => void;
 }
-const BackButton: FC<IBackButton>= () => {
+const BackButton: FC<IBackButton> = () => {
+  const navigate = useNavigate();
   return (
-    <div className={classes.back_button}>
-    <button >
-    <Link  className={classes.link} to={RoutersPathEnum.HOME}>
-             Back
-      </Link>
-       </button>
-  </div>
-  )
-}
+    <div className={classes.back_button} onClick={() => navigate(-1)}>
+      <button className={classes.button}>Back</button>
+    </div>
+  );
+};
 
-export default BackButton
+export default BackButton;
