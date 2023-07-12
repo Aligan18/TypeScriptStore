@@ -1,0 +1,14 @@
+.wrapper {
+  display: grid;
+  grid-template-columns:110px auto 385px;
+  gap: 75px;
+  grid-template-rows: max-content;
+ 
+ 
+  
+        @media only screen
+        and (min-width: 120px)
+        and (max-width: 768px) {
+          display:block;
+        }   
+  }
