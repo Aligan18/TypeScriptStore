@@ -3,9 +3,11 @@
   position: relative;
   border-radius: 15px;
   width: 500px;
-  height: 650px;
+  height: fit-content;
+
   background-color: white;
   padding: 32px;
+  padding-bottom: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +18,6 @@
   font-size: 25px;
 }
 .form {
-  gap: 10px;
   display: grid;
   justify-content: center;
   align-items: center;
